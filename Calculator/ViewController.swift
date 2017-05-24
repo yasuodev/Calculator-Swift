@@ -20,6 +20,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var lblA3: UILabel!
     @IBOutlet weak var lblTotal: UILabel!
     
+    @IBOutlet weak var txtKg: UITextField!
+    @IBOutlet weak var txtLb: UITextField!
+    
     
     var isEmptyA1 : Bool = true;
     var isEmptyA2 : Bool = true;
@@ -142,6 +145,27 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
         resultSum = result1 + result2 + result3;
         self.lblTotal.text = String(resultSum)
+        
+        convertMass()
+        
+    }
+    
+    func convertMass() {
+        
+        if txtKg.text == "" {
+            txtLb.text = ""
+        } else {
+            if isNumeric(checkText: txtKg.text!) {
+                let kg = Float(txtKg.text!)!
+                let lb = kg * 2.20462
+                txtLb.text = String(lb)
+                
+            } else {
+                txtLb.text = "Wrong value."
+            }
+        }
+        
+        
         
         
     }
