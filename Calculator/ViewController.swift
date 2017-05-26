@@ -34,6 +34,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     var a3: Float = 0
     var total: Float = 0;
     
+    var isKgLb = true;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -146,11 +148,16 @@ class ViewController: UIViewController, UITextFieldDelegate{
         resultSum = result1 + result2 + result3;
         self.lblTotal.text = String(resultSum)
         
-        convertMass()
+        if isKgLb {
+            convertKgLb()
+        } else {
+            convertLbKg()
+        }
+        
         
     }
     
-    func convertMass() {
+    func convertKgLb() {
         
         if txtKg.text == "" {
             txtLb.text = ""
@@ -164,10 +171,21 @@ class ViewController: UIViewController, UITextFieldDelegate{
                 txtLb.text = "Wrong value."
             }
         }
-        
-        
-        
-        
+    }
+    
+    func convertLbKg() {
+        if txtLb.text == "" {
+            txtKg.text = ""
+        } else {
+            if isNumeric(checkText: txtLb.text!) {
+                let lb = Float(txtLb.text!)!
+                let kg = lb * 0.453592
+                txtKg.text = String(kg)
+                
+            } else {
+                txtKg.text = "Wrong value."
+            }
+        }
     }
     
     func isNumeric(checkText: String) -> Bool {
@@ -181,13 +199,26 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
+        let result = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        textField.text = result
         calculate()
-        return true
+        return false
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
         calculate()
     }
+    
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == txtKg {
+            isKgLb = true
+        }
+        if textField == txtLb {
+            isKgLb = false
+        }
+        return true
+    }
+    
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
