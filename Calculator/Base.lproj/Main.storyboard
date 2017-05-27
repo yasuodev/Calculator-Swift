@@ -121,11 +121,11 @@
                                     <outlet property="delegate" destination="Cgm-ly-fea" id="zau-Pm-xiO"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-8s-VBK">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-8s-VBK">
                                 <rect key="frame" x="200" y="335" width="125" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="Cgm-ly-fea" id="K6K-rJ-b2D"/>
                                 </connections>
@@ -142,12 +142,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3sH-Xe-dc8">
+                                <rect key="frame" x="162" y="385" width="50" height="30"/>
+                                <state key="normal" title="Inverse"/>
+                                <connections>
+                                    <action selector="onInverse:" destination="Cgm-ly-fea" eventType="touchUpInside" id="OwQ-c7-bXv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qcL-RM-4Ls" firstAttribute="centerY" secondItem="hIp-x4-plT" secondAttribute="centerY" id="0ZE-DK-ziY"/>
                             <constraint firstItem="um4-QN-zNr" firstAttribute="centerX" secondItem="Wvf-Cj-Aeb" secondAttribute="centerX" multiplier="0.6" id="28h-RW-jp7"/>
                             <constraint firstItem="hIp-x4-plT" firstAttribute="width" secondItem="XpG-DS-2cE" secondAttribute="width" id="3eu-H4-k3e"/>
+                            <constraint firstItem="3sH-Xe-dc8" firstAttribute="centerX" secondItem="Wvf-Cj-Aeb" secondAttribute="centerX" id="3mx-bv-nzs"/>
                             <constraint firstItem="Ixj-fc-oyW" firstAttribute="centerY" secondItem="kQN-VN-rzC" secondAttribute="centerY" id="3nQ-u7-MAr"/>
                             <constraint firstAttribute="bottom" secondItem="71i-wN-NRA" secondAttribute="bottom" id="4c2-xT-xNS"/>
                             <constraint firstItem="JUh-EV-S9N" firstAttribute="top" secondItem="Vty-gS-UOn" secondAttribute="bottom" constant="12" id="4cR-Pn-cJe"/>
@@ -185,6 +193,7 @@
                             <constraint firstItem="hIp-x4-plT" firstAttribute="centerY" secondItem="JUh-EV-S9N" secondAttribute="centerY" id="veA-UR-ZMW"/>
                             <constraint firstItem="xVo-Nj-Dvm" firstAttribute="centerX" secondItem="Zw4-8s-VBK" secondAttribute="centerX" id="w3V-oM-73q"/>
                             <constraint firstItem="hIp-x4-plT" firstAttribute="leading" secondItem="JUh-EV-S9N" secondAttribute="trailing" constant="20" id="wfC-ix-VQE"/>
+                            <constraint firstItem="3sH-Xe-dc8" firstAttribute="top" secondItem="um4-QN-zNr" secondAttribute="bottom" constant="20" id="xYx-kE-8Hw"/>
                             <constraint firstItem="XpG-DS-2cE" firstAttribute="width" secondItem="Sdc-Sm-pZN" secondAttribute="width" id="zA3-ku-so3"/>
                         </constraints>
                     </view>
@@ -192,6 +201,8 @@
                         <outlet property="lblA1" destination="aVg-nQ-jhs" id="gEJ-rq-dQv"/>
                         <outlet property="lblA2" destination="cDd-mu-cbo" id="6Gg-P8-4TM"/>
                         <outlet property="lblA3" destination="qcL-RM-4Ls" id="hk5-Xk-58b"/>
+                        <outlet property="lblKg" destination="PCU-P2-vTs" id="Y4u-6X-XzW"/>
+                        <outlet property="lblLb" destination="xVo-Nj-Dvm" id="pVk-rw-1bh"/>
                         <outlet property="lblTotal" destination="Ixj-fc-oyW" id="gQL-Yz-7lq"/>
                         <outlet property="txt1A" destination="Sdc-Sm-pZN" id="fQq-9z-fPm"/>
                         <outlet property="txt2A" destination="XpG-DS-2cE" id="2Jg-sD-dul"/>

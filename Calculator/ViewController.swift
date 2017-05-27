@@ -23,6 +23,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var txtKg: UITextField!
     @IBOutlet weak var txtLb: UITextField!
     
+    @IBOutlet weak var lblKg: UILabel!
+    @IBOutlet weak var lblLb: UILabel!
     
     var isEmptyA1 : Bool = true;
     var isEmptyA2 : Bool = true;
@@ -46,6 +48,14 @@ class ViewController: UIViewController, UITextFieldDelegate{
         isEmptyA3 = true;
         isEmptyTotal = true;
         
+        txt1A.text = UserDefaults.standard.string(forKey: "squat")
+        txt2A.text = UserDefaults.standard.string(forKey: "bench")
+        txt3A.text = UserDefaults.standard.string(forKey: "deadlift")
+        txtTotal.text = UserDefaults.standard.string(forKey: "total")
+        txtKg.text = UserDefaults.standard.string(forKey: "kg")
+        isKgLb = UserDefaults.standard.bool(forKey: "isKgLb")
+        
+        calculate()
         
     }
     
@@ -154,7 +164,13 @@ class ViewController: UIViewController, UITextFieldDelegate{
             convertLbKg()
         }
         
+        UserDefaults.standard.set(txt1A.text, forKey: "squat")
+        UserDefaults.standard.set(txt2A.text, forKey: "bench")
+        UserDefaults.standard.set(txt3A.text, forKey: "deadlift")
+        UserDefaults.standard.set(txtTotal.text, forKey: "total")
         
+        UserDefaults.standard.set(txtKg.text, forKey: "kg")
+        UserDefaults.standard.set(isKgLb, forKey: "isKgLb")
     }
     
     func convertKgLb() {
@@ -174,16 +190,16 @@ class ViewController: UIViewController, UITextFieldDelegate{
     }
     
     func convertLbKg() {
-        if txtLb.text == "" {
-            txtKg.text = ""
+        if txtKg.text == "" {
+            txtLb.text = ""
         } else {
             if isNumeric(checkText: txtLb.text!) {
-                let lb = Float(txtLb.text!)!
+                let lb = Float(txtKg.text!)!
                 let kg = lb * 0.453592
-                txtKg.text = String(kg)
+                txtLb.text = String(kg)
                 
             } else {
-                txtKg.text = "Wrong value."
+                txtLb.text = "Wrong value."
             }
         }
     }
@@ -222,15 +238,29 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        
         self.txt1A.resignFirstResponder()
         self.txt2A.resignFirstResponder()
         self.txt3A.resignFirstResponder()
         self.txtTotal.resignFirstResponder()
+        self.txtKg.resignFirstResponder()
+        self.txtLb.resignFirstResponder()
         
         self .calculate()
         
     }
     
+    @IBAction func onInverse(_ sender: Any) {
+        if isKgLb {
+            lblKg.text = "Lb"
+            lblLb.text = "Kg"
+        } else {
+            lblKg.text = "Kg"
+            lblLb.text = "Lb"
+        }
+        
+        isKgLb = !isKgLb
+        
+        calculate()
+    }
 }
 
