@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate{
     
+    @IBOutlet weak var viewSquat: UIView!
+    @IBOutlet weak var viewBench: UIView!
+    @IBOutlet weak var viewDeadlift: UIView!
+    @IBOutlet weak var viewTotal: UIView!
 
     @IBOutlet weak var txtSquat: UITextField!
     @IBOutlet weak var txtBench: UITextField!
@@ -17,9 +21,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var txtTotal: UITextField!
     
-    @IBOutlet weak var lblA1: UILabel!
-    @IBOutlet weak var lblA2: UILabel!
-    @IBOutlet weak var lblA3: UILabel!
+    @IBOutlet weak var lblSquat: UILabel!
+    @IBOutlet weak var lblBench: UILabel!
+    @IBOutlet weak var lblDeadlift: UILabel!
     @IBOutlet weak var lblTotal: UILabel!
     
     @IBOutlet weak var txtKg: UITextField!
@@ -28,9 +32,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var lblKg: UILabel!
     @IBOutlet weak var lblLb: UILabel!
     
-    var isEmptyA1 : Bool = true;
-    var isEmptyA2 : Bool = true;
-    var isEmptyA3 : Bool = true;
+    var isEmptySquat : Bool = true;
+    var isEmptyBench : Bool = true;
+    var isEmptyDeadlift : Bool = true;
     var isEmptyTotal: Bool = true;
     
     var a1: Float = 0
@@ -45,10 +49,18 @@ class ViewController: UIViewController, UITextFieldDelegate{
         // Do any additional setup after loading the view, typically from a nib.
         
         
-        isEmptyA1 = true;
-        isEmptyA2 = true;
-        isEmptyA3 = true;
+        isEmptySquat = true;
+        isEmptyBench = true;
+        isEmptyDeadlift = true;
         isEmptyTotal = true;
+        
+        viewSquat.layer.cornerRadius = 5
+        viewBench.layer.cornerRadius = 5
+        viewDeadlift.layer.cornerRadius = 5
+        viewTotal.layer.cornerRadius = 5
+        
+        viewTotal.layer.borderColor = UIColor.red.cgColor
+        viewTotal.layer.borderWidth = 1
         
         txtSquat.text = UserDefaults.standard.string(forKey: "squat")
         txtBench.text = UserDefaults.standard.string(forKey: "bench")
@@ -75,12 +87,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
         var resultSum: Float = 0
         
         if txtSquat.text == "" {
-            isEmptyA1 = true
+            isEmptySquat = true
             a1 = 0
         } else {
-            isEmptyA1 = false
+            isEmptySquat = false
             totalCount += 1
-            self.lblA1.text = self.txtSquat.text
+            self.lblSquat.text = self.txtSquat.text
             
             if isNumeric(checkText: txtSquat.text!) {
                 a1 = Float(txtSquat.text!)!
@@ -89,12 +101,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
         }
         
         if txtBench.text == "" {
-            isEmptyA2 = true
+            isEmptyBench = true
             a2 = 0
         } else {
-            isEmptyA2 = false
+            isEmptyBench = false
             totalCount += 1
-            lblA2.text = self.txtBench.text;
+            lblBench.text = self.txtBench.text;
             
             if isNumeric(checkText: txtBench.text!) {
                 a2 = Float(self.txtBench.text!)!
@@ -103,12 +115,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
         }
         
         if self.txtDeadlift.text == "" {
-            isEmptyA3 = true
+            isEmptyDeadlift = true
             a3 = 0
         } else {
-            isEmptyA3 = false
+            isEmptyDeadlift = false
             totalCount += 1
-            self.lblA3.text = self.txtDeadlift.text
+            self.lblDeadlift.text = self.txtDeadlift.text
             if isNumeric(checkText: self.txtDeadlift.text!) {
                 a3 = Float(self.txtDeadlift.text!)!
                 result3 = a3
@@ -127,33 +139,33 @@ class ViewController: UIViewController, UITextFieldDelegate{
             }
         }
         
-        if (isEmptyA1) {
+        if (isEmptySquat) {
             if (totalCount == 1) {
                 result1 = (total - a1 - a2 - a3) / 2
-                self.lblA1.text = String(result1)
+                self.lblSquat.text = String(result1)
             } else {
                 result1 = (total - a1 - a2 - a3)
-                self.lblA1.text = String(result1)
+                self.lblSquat.text = String(result1)
             }
         }
         
-        if (isEmptyA2) {
+        if (isEmptyBench) {
             if (totalCount == 1) {
                 result2 = (total - a1 - a2 - a3) / 2
-                self.lblA2.text = String(result2)
+                self.lblBench.text = String(result2)
             } else {
                 result2 = (total - a1 - a2 - a3)
-                self.lblA2.text = String(result2)
+                self.lblBench.text = String(result2)
             }
         }
         
-        if (isEmptyA3) {
+        if (isEmptyDeadlift) {
             if (totalCount == 1) {
                 result3 = (total - a1 - a2 - a3) / 2
-                self.lblA3.text = String(result3)
+                self.lblDeadlift.text = String(result3)
             } else {
                 result3 = (total - a1 - a2 - a3);
-                self.lblA3.text = String(result3)
+                self.lblDeadlift.text = String(result3)
             }
         }
         
