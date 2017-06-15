@@ -39,5 +39,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Simplo-Soft-Bold.otf</string>
+		<string>Simplo-Soft-Bold-Italic.otf</string>
+	</array>
 </dict>
 </plist>

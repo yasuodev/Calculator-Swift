@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate{
     
-    @IBOutlet weak var txt1A: UITextField!
-    @IBOutlet weak var txt2A: UITextField!
-    @IBOutlet weak var txt3A: UITextField!
+
+    @IBOutlet weak var txtSquat: UITextField!
+    @IBOutlet weak var txtBench: UITextField!
+    @IBOutlet weak var txtDeadlift: UITextField!
+    
     @IBOutlet weak var txtTotal: UITextField!
     
     @IBOutlet weak var lblA1: UILabel!
@@ -48,9 +50,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         isEmptyA3 = true;
         isEmptyTotal = true;
         
-        txt1A.text = UserDefaults.standard.string(forKey: "squat")
-        txt2A.text = UserDefaults.standard.string(forKey: "bench")
-        txt3A.text = UserDefaults.standard.string(forKey: "deadlift")
+        txtSquat.text = UserDefaults.standard.string(forKey: "squat")
+        txtBench.text = UserDefaults.standard.string(forKey: "bench")
+        txtDeadlift.text = UserDefaults.standard.string(forKey: "deadlift")
         txtTotal.text = UserDefaults.standard.string(forKey: "total")
         txtKg.text = UserDefaults.standard.string(forKey: "kg")
         isKgLb = UserDefaults.standard.bool(forKey: "isKgLb")
@@ -72,43 +74,43 @@ class ViewController: UIViewController, UITextFieldDelegate{
         var result3: Float = 0
         var resultSum: Float = 0
         
-        if txt1A.text == "" {
+        if txtSquat.text == "" {
             isEmptyA1 = true
             a1 = 0
         } else {
             isEmptyA1 = false
             totalCount += 1
-            self.lblA1.text = self.txt1A.text
+            self.lblA1.text = self.txtSquat.text
             
-            if isNumeric(checkText: txt1A.text!) {
-                a1 = Float(txt1A.text!)!
+            if isNumeric(checkText: txtSquat.text!) {
+                a1 = Float(txtSquat.text!)!
                 result1 = a1
             }
         }
         
-        if txt2A.text == "" {
+        if txtBench.text == "" {
             isEmptyA2 = true
             a2 = 0
         } else {
             isEmptyA2 = false
             totalCount += 1
-            lblA2.text = self.txt2A.text;
+            lblA2.text = self.txtBench.text;
             
-            if isNumeric(checkText: txt2A.text!) {
-                a2 = Float(self.txt2A.text!)!
+            if isNumeric(checkText: txtBench.text!) {
+                a2 = Float(self.txtBench.text!)!
                 result2 = a2
             }
         }
         
-        if self.txt3A.text == "" {
+        if self.txtDeadlift.text == "" {
             isEmptyA3 = true
             a3 = 0
         } else {
             isEmptyA3 = false
             totalCount += 1
-            self.lblA3.text = self.txt3A.text
-            if isNumeric(checkText: self.txt3A.text!) {
-                a3 = Float(self.txt3A.text!)!
+            self.lblA3.text = self.txtDeadlift.text
+            if isNumeric(checkText: self.txtDeadlift.text!) {
+                a3 = Float(self.txtDeadlift.text!)!
                 result3 = a3
             }
         }
@@ -164,9 +166,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
             convertLbKg()
         }
         
-        UserDefaults.standard.set(txt1A.text, forKey: "squat")
-        UserDefaults.standard.set(txt2A.text, forKey: "bench")
-        UserDefaults.standard.set(txt3A.text, forKey: "deadlift")
+        UserDefaults.standard.set(txtSquat.text, forKey: "squat")
+        UserDefaults.standard.set(txtBench.text, forKey: "bench")
+        UserDefaults.standard.set(txtDeadlift.text, forKey: "deadlift")
         UserDefaults.standard.set(txtTotal.text, forKey: "total")
         
         UserDefaults.standard.set(txtKg.text, forKey: "kg")
@@ -238,9 +240,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        self.txt1A.resignFirstResponder()
-        self.txt2A.resignFirstResponder()
-        self.txt3A.resignFirstResponder()
+        self.txtSquat.resignFirstResponder()
+        self.txtBench.resignFirstResponder()
+        self.txtDeadlift.resignFirstResponder()
         self.txtTotal.resignFirstResponder()
         self.txtKg.resignFirstResponder()
         self.txtLb.resignFirstResponder()

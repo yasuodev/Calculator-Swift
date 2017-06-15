@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D75541C61EF293C8005CAD49 /* Simplo-Soft-Bold-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D75541C41EF293C8005CAD49 /* Simplo-Soft-Bold-Italic.otf */; };
+		D75541C71EF293C8005CAD49 /* Simplo-Soft-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D75541C51EF293C8005CAD49 /* Simplo-Soft-Bold.otf */; };
 		D7AC09DC1ED42CD6007F1F6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AC09DB1ED42CD6007F1F6D /* AppDelegate.swift */; };
 		D7AC09DE1ED42CD6007F1F6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AC09DD1ED42CD6007F1F6D /* ViewController.swift */; };
 		D7AC09E11ED42CD6007F1F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AC09DF1ED42CD6007F1F6D /* Main.storyboard */; };
 		D7AC09E31ED42CD6007F1F6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AC09E21ED42CD6007F1F6D /* Assets.xcassets */; };
 		D7AC09E61ED42CD6007F1F6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AC09E41ED42CD6007F1F6D /* LaunchScreen.storyboard */; };
-		D7AC09EE1ED42D6F007F1F6D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D7AC09ED1ED42D6F007F1F6D /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D75541C41EF293C8005CAD49 /* Simplo-Soft-Bold-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Simplo-Soft-Bold-Italic.otf"; path = "fonts/Simplo-Soft-Bold-Italic.otf"; sourceTree = "<group>"; };
+		D75541C51EF293C8005CAD49 /* Simplo-Soft-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Simplo-Soft-Bold.otf"; path = "fonts/Simplo-Soft-Bold.otf"; sourceTree = "<group>"; };
 		D7AC09D81ED42CD6007F1F6D /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AC09DB1ED42CD6007F1F6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7AC09DD1ED42CD6007F1F6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,7 +26,6 @@
 		D7AC09E21ED42CD6007F1F6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7AC09E51ED42CD6007F1F6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7AC09E71ED42CD6007F1F6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D7AC09ED1ED42D6F007F1F6D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D75541C31EF293B7005CAD49 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D75541C41EF293C8005CAD49 /* Simplo-Soft-Bold-Italic.otf */,
+				D75541C51EF293C8005CAD49 /* Simplo-Soft-Bold.otf */,
+			);
+			name = fonts;
+			sourceTree = "<group>";
+		};
 		D7AC09CF1ED42CD6007F1F6D = {
 			isa = PBXGroup;
 			children = (
@@ -56,7 +67,7 @@
 		D7AC09DA1ED42CD6007F1F6D /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				D7AC09ED1ED42D6F007F1F6D /* background.png */,
+				D75541C31EF293B7005CAD49 /* fonts */,
 				D7AC09DB1ED42CD6007F1F6D /* AppDelegate.swift */,
 				D7AC09DD1ED42CD6007F1F6D /* ViewController.swift */,
 				D7AC09DF1ED42CD6007F1F6D /* Main.storyboard */,
@@ -126,8 +137,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75541C61EF293C8005CAD49 /* Simplo-Soft-Bold-Italic.otf in Resources */,
 				D7AC09E61ED42CD6007F1F6D /* LaunchScreen.storyboard in Resources */,
-				D7AC09EE1ED42D6F007F1F6D /* background.png in Resources */,
+				D75541C71EF293C8005CAD49 /* Simplo-Soft-Bold.otf in Resources */,
 				D7AC09E31ED42CD6007F1F6D /* Assets.xcassets in Resources */,
 				D7AC09E11ED42CD6007F1F6D /* Main.storyboard in Resources */,
 			);
@@ -305,6 +317,7 @@
 				D7AC09EC1ED42CD6007F1F6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
