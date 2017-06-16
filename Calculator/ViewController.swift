@@ -32,6 +32,11 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var lblKg: UILabel!
     @IBOutlet weak var lblLb: UILabel!
     
+    @IBOutlet weak var switchView: UIView!
+    @IBOutlet weak var redView: UIView!
+    @IBOutlet weak var redCenterConstraint: NSLayoutConstraint!
+    
+    
     var isEmptySquat : Bool = true;
     var isEmptyBench : Bool = true;
     var isEmptyDeadlift : Bool = true;
@@ -42,7 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     var a3: Float = 0
     var total: Float = 0;
     
-    var isKgLb = true;
+    var isLbKg = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +72,27 @@ class ViewController: UIViewController, UITextFieldDelegate{
         txtDeadlift.text = UserDefaults.standard.string(forKey: "deadlift")
         txtTotal.text = UserDefaults.standard.string(forKey: "total")
         txtKg.text = UserDefaults.standard.string(forKey: "kg")
-        isKgLb = UserDefaults.standard.bool(forKey: "isKgLb")
+        isLbKg = UserDefaults.standard.bool(forKey: "isLbKg")
         
         calculate()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        switchView.layer.cornerRadius = switchView.bounds.height / 2.0
+        redView.layer.cornerRadius = redView.bounds.height / 2.0
+        
+        let rect = switchView.frame
+        
+        if isLbKg {
+            redCenterConstraint.constant = -rect.width / 4.0
+        } else {
+            redCenterConstraint.constant = rect.width / 4.0
+        }
+        
+        switchView.layoutIfNeeded()
         
     }
     
@@ -172,10 +195,10 @@ class ViewController: UIViewController, UITextFieldDelegate{
         resultSum = result1 + result2 + result3;
         self.lblTotal.text = String(resultSum)
         
-        if isKgLb {
-            convertKgLb()
-        } else {
+        if isLbKg {
             convertLbKg()
+        } else {
+            convertKgLb()
         }
         
         UserDefaults.standard.set(txtSquat.text, forKey: "squat")
@@ -184,7 +207,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         UserDefaults.standard.set(txtTotal.text, forKey: "total")
         
         UserDefaults.standard.set(txtKg.text, forKey: "kg")
-        UserDefaults.standard.set(isKgLb, forKey: "isKgLb")
+        UserDefaults.standard.set(isLbKg, forKey: "isLbKg")
     }
     
     func convertKgLb() {
@@ -235,20 +258,20 @@ class ViewController: UIViewController, UITextFieldDelegate{
         return false
     }
     
-    public func textFieldDidEndEditing(_ textField: UITextField) {
-        calculate()
-    }
-    
-    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == txtKg {
-            isKgLb = true
-        }
-        if textField == txtLb {
-            isKgLb = false
-        }
-        return true
-    }
-    
+//    public func textFieldDidEndEditing(_ textField: UITextField) {
+//        calculate()
+//    }
+//    
+//    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+//        if textField == txtKg {
+//            isKgLb = true
+//        }
+//        if textField == txtLb {
+//            isKgLb = false
+//        }
+//        return true
+//    }
+//    
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -263,18 +286,36 @@ class ViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    @IBAction func onInverse(_ sender: Any) {
-        if isKgLb {
-            lblKg.text = "Lb"
-            lblLb.text = "Kg"
-        } else {
-            lblKg.text = "Kg"
-            lblLb.text = "Lb"
-        }
+    
+    @IBAction func onLBS(_ sender: Any) {
+        lblKg.text = "LBS"
+        lblLb.text = "KG"
+        isLbKg = true
         
-        isKgLb = !isKgLb
+        UIView.animate(withDuration: 0.3) {
+            let rect = self.switchView.frame
+            self.redCenterConstraint.constant = -rect.width / 4.0
+            self.switchView.layoutIfNeeded()
+        }
         
         calculate()
     }
+    
+    @IBAction func onKg(_ sender: Any) {
+        
+        lblKg.text = "KG"
+        lblLb.text = "LBS"
+        isLbKg = false
+        
+        UIView.animate(withDuration: 0.3) {
+            let rect = self.switchView.frame
+            self.redCenterConstraint.constant = rect.width / 4.0
+            self.switchView.layoutIfNeeded()
+        }
+        
+        calculate()
+    }
+    
+    
 }
 
