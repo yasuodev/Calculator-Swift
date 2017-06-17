@@ -14,7 +14,12 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var viewBench: UIView!
     @IBOutlet weak var viewDeadlift: UIView!
     @IBOutlet weak var viewTotal: UIView!
-
+    
+    @IBOutlet weak var viewSquatResult: UIView!
+    @IBOutlet weak var viewBenchResult: UIView!
+    @IBOutlet weak var viewDeadliftResult: UIView!
+    @IBOutlet weak var viewTotalResult: UIView!
+    
     @IBOutlet weak var txtSquat: UITextField!
     @IBOutlet weak var txtBench: UITextField!
     @IBOutlet weak var txtDeadlift: UITextField!
@@ -28,6 +33,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var txtLeft: UITextField!
     @IBOutlet weak var txtRight: UITextField!
+    @IBOutlet weak var viewLeft: UIView!
+    @IBOutlet weak var viewRight: UIView!
     
     @IBOutlet weak var lblLeft: UILabel!
     @IBOutlet weak var lblRight: UILabel!
@@ -63,9 +70,18 @@ class ViewController: UIViewController, UITextFieldDelegate{
         viewBench.layer.cornerRadius = 5
         viewDeadlift.layer.cornerRadius = 5
         viewTotal.layer.cornerRadius = 5
-        
         viewTotal.layer.borderColor = UIColor.red.cgColor
         viewTotal.layer.borderWidth = 1
+        
+        viewSquatResult.layer.cornerRadius = 5
+        viewBenchResult.layer.cornerRadius = 5
+        viewDeadliftResult.layer.cornerRadius = 5
+        viewTotalResult.layer.cornerRadius = 5
+        viewTotalResult.layer.borderColor = UIColor.red.cgColor
+        viewTotalResult.layer.borderWidth = 1
+        
+        viewLeft.layer.cornerRadius = 5;
+        viewRight.layer.cornerRadius = 5;
         
         txtSquat.text = UserDefaults.standard.string(forKey: "squat")
         txtBench.text = UserDefaults.standard.string(forKey: "bench")
