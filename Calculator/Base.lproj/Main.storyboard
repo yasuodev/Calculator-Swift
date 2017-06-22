@@ -104,7 +104,7 @@
                                 <rect key="frame" x="50" y="375" width="133.5" height="41"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Total" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQN-VN-rzC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="TOTAL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQN-VN-rzC">
                                 <rect key="frame" x="53.5" y="375" width="126.5" height="41"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,7 +134,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="um4-QN-zNr">
                                 <rect key="frame" x="50" y="473" width="125" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SimploSoft-Bold" family="Simplo Soft" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="Cgm-ly-fea" id="zau-Pm-xiO"/>
@@ -151,7 +151,7 @@
                                 <rect key="frame" x="200" y="473" width="125" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SimploSoft-Bold" family="Simplo Soft" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="Cgm-ly-fea" id="K6K-rJ-b2D"/>
